@@ -57,7 +57,7 @@ def make_str_from_column(board, column_index):
     word = ''
     i = column_index
     for index in board:
-      word += (index[i])
+        word += (index[i])
     return word
     
 
@@ -95,9 +95,9 @@ def board_contains_word_in_column(board, word):
     i = 0
     contain = False
     while i < len(board[0]):
-      if word in make_str_from_column(board, i):
+        if word in make_str_from_column(board, i):
         contain = True
-      i += 1
+        i += 1
     
     return contain
 
@@ -117,7 +117,7 @@ def board_contains_word(board, word):
     a = board_contains_word_in_row(board, word)
     b = board_contains_word_in_column(board, word)
     if a or b:
-      return True
+        return True
     return False
 
 
@@ -139,13 +139,13 @@ def word_score(word):
     
     points = 0
     if len(word) < 3:
-      return points
+        return points
     elif (len(word) >= 3) and (len(word) <= 6):
-      return (points + len(word))
+        return (points + len(word))
     elif (len(word) >= 7) and (len(word) <= 9):
-      return points + (len(word) * 2)
+        return points + (len(word) * 2)
     elif len(word) >= 10:
-      return points + (len(word) * 3)
+        return points + (len(word) * 3)
 
 
 def update_score(player_info, word):
@@ -171,7 +171,7 @@ def num_words_on_board(board, words):
     
     word_num = 0
     for word in words:
-      if board_contains_word(board, word):
+        if board_contains_word(board, word):
         word_num += 1
     return word_num
 
@@ -187,13 +187,13 @@ def read_words(words_file):
     word_list = []
     
     for line in words_file:
-      word = ''
-      
-      for char in line:
-        if char != '/n':
-          word += char
-      word_list.append(word)
-      
+        word = ''
+        
+        for char in line:
+            if char != '/n':
+                word += char
+        word_list.append(word)
+        
     return word_list
 
 
@@ -204,5 +204,5 @@ def read_board(board_file):
     """
     line = board_file.readline()
     while line != '':
-      print(line, end='')
-      line = board_file.readline()
+        print(line, end='')
+        line = board_file.readline()
